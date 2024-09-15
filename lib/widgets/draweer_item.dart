@@ -1,7 +1,6 @@
 import 'package:admin_dashboard/models/drawer_item_model.dart';
-import 'package:admin_dashboard/utils/app_style.dart';
+import 'package:admin_dashboard/widgets/active_and_inactive_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DraweerItem extends StatelessWidget {
   const DraweerItem(
@@ -11,12 +10,8 @@ class DraweerItem extends StatelessWidget {
   final bool isActive;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: SvgPicture.asset(drawerItemModel.image),
-      title: Text(
-        drawerItemModel.title,
-        style: AppStyle.styleMedium16,
-      ),
-    );
+    return isActive
+        ? ActiveDrawerItem(drawerItemModel: drawerItemModel)
+        : InActiveDrawerItem(drawerItemModel: drawerItemModel);
   }
 }
