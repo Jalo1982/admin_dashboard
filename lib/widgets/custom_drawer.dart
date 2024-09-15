@@ -1,5 +1,7 @@
+import 'package:admin_dashboard/models/drawer_item_model.dart';
 import 'package:admin_dashboard/utils/app_images.dart';
 import 'package:admin_dashboard/widgets/UserInfoListTile.dart';
+import 'package:admin_dashboard/widgets/active_and_inactive_item.dart';
 import 'package:admin_dashboard/widgets/drawer_items_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,15 +12,38 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Column(
-        children: [
-          Userinfolisttile(
-            image: Assets.imagesAvatar3,
-            title: 'Lekan Okeowo',
-            subtitle: 'demo@gmail.com',
+      child: const CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Userinfolisttile(
+              image: Assets.imagesAvatar3,
+              title: 'Lekan Okeowo',
+              subtitle: 'demo@gmail.com',
+            ),
           ),
-          SizedBox(height: 8),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 8),
+          ),
           DrawerItemsListView(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SizedBox(),
+                ),
+                InActiveDrawerItem(
+                  drawerItemModel: DrawerItemModel(
+                      title: 'System Sitting', image: Assets.imagesSettings),
+                ),
+                InActiveDrawerItem(
+                  drawerItemModel: DrawerItemModel(
+                      title: 'Logout account', image: Assets.imagesLogout),
+                ),
+                SizedBox(height: 48),
+              ],
+            ),
+          )
         ],
       ),
     );
