@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DraweerItem extends StatelessWidget {
-  const DraweerItem({super.key, required this.drawerItemModel});
+  const DraweerItem(
+      {super.key, required this.drawerItemModel, required this.isActive});
 
   final DrawerItemModel drawerItemModel;
+  final bool isActive;
   @override
   Widget build(BuildContext context) {
     return ListTile(
