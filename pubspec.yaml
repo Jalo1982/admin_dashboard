@@ -24,11 +24,7 @@ flutter:
 
   uses-material-design: true
 
-flutter_assets:
-  assets_path: assets/images
-  output_path: lib/utils
-  filename: app_images.dart
-  field_prefix: null
+
 
   assets:
     - assets/images/
@@ -37,3 +33,9 @@ flutter_assets:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Medium.ttf
+
+flutter_assets:
+  assets_path: assets/images
+  output_path: lib/utils
+  filename: app_images.dart
+  field_prefix: null
